@@ -48,7 +48,7 @@ export const translations = {
       ],
       teamTitle: 'Our Leadership',
       team: [
-        { name: 'Rev. David Kim', role: 'Executive Director', bio: '20 years of pastoral care experience.' },
+        { name: 'Rev. Byoungil Song', role: 'Senior Pastor', bio: 'Chongshin Seminary Graduate, Master of Arts in New Testament (Talbot School of Theology), Doctor of Ministry (Denver Seminary).' },
         { name: 'Sarah Jenkins', role: 'Program Director', bio: 'Certified Geriatric Care Specialist.' },
         { name: 'Michael Park', role: 'Volunteer Coordinator', bio: 'Former youth pastor and community organizer.' }
       ]
@@ -210,7 +210,7 @@ export const translations = {
       ],
       teamTitle: '섬기는 사람들',
       team: [
-        { name: '김대이 목사', role: '대표', bio: '20년의 목회 및 노인 사역 경력.' },
+        { name: '송병일 목사', role: '담임목사', bio: '총신대학교 신학대학원 졸업, Talbot School of Theology (신약학 석사), Denver Seminary (목회학 박사).' },
         { name: '사라 정', role: '프로그램 디렉터', bio: '노인 요양 전문 자격 보유.' },
         { name: '박마이클', role: '자원봉사 코디네이터', bio: '전 청년부 목사 및 커뮤니티 기획자.' }
       ]
