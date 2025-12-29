@@ -9,8 +9,15 @@ const DonatePage: React.FC = () => {
    return (
       <div className="pt-16 min-h-screen bg-silver-50">
          {/* Hero */}
-         <div className="bg-evergreen-900 py-20 text-center text-white">
-            <div className="max-w-3xl mx-auto px-4">
+         <div className="relative bg-evergreen-900 py-32 text-center text-white overflow-hidden">
+            <div className="absolute inset-0 z-0">
+               <img
+                  src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=1920&q=80"
+                  alt="Hands holding a small seedling"
+                  className="w-full h-full object-cover opacity-40"
+               />
+            </div>
+            <div className="relative z-10 max-w-3xl mx-auto px-4">
                <Gift className="mx-auto w-16 h-16 text-evergreen-300 mb-6" />
                <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">{t.donate.title}</h1>
                <p className="text-xl text-evergreen-100">{t.donate.subtitle}</p>
@@ -49,9 +56,6 @@ const DonatePage: React.FC = () => {
                      <div className="bg-silver-50 p-8 rounded-xl border border-silver-200 font-mono text-silver-700 whitespace-pre-line">
                         {t.donatePage.bankInfo}
                      </div>
-                     <p className="mt-4 text-xs text-silver-500 italic">
-                        * {t.contact.footer.legalNotice}
-                     </p>
                      <div className="mt-8">
                         <button className="w-full bg-evergreen-600 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-evergreen-700 flex items-center justify-center gap-2">
                            <CreditCard />

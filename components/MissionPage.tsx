@@ -12,10 +12,10 @@ const MissionPage: React.FC = () => {
     <div className="pt-16 min-h-screen bg-white">
       {/* Page Hero */}
       <div className="relative h-[400px] bg-evergreen-900 overflow-hidden">
-        <img 
-          src="https://picsum.photos/1920/600?grayscale" 
-          alt="Mission Hero" 
-          className="w-full h-full object-cover opacity-30"
+        <img
+          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80"
+          alt="Mist-covered mountains symbolizing a spiritual journey"
+          className="w-full h-full object-cover opacity-50"
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-white text-center px-4">
