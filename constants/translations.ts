@@ -149,7 +149,7 @@ export const translations = {
       faqs: [
         { q: 'How do I refer a senior for help?', a: 'Please call our main office or fill out the contact form with the subject line "Referral".' },
         { q: 'Is this organization religiously affiliated?', a: 'Yes, we are a Christian organization, but we serve everyone regardless of their faith background.' },
-        { q: 'Are donations tax-deductible?', a: 'Yes, ESMO is a registered 501(c)(3) non-profit organization.' }
+        { q: 'Are donations tax-deductible?', a: 'We are currently in the process of applying for 501(c)(3) non-profit status. Please contact us for the latest information on tax deductibility.' }
       ]
     },
     chat: {
@@ -310,7 +310,7 @@ export const translations = {
       faqs: [
         { q: '도움이 필요한 어르신은 어떻게 추천하나요?', a: '사무실로 전화 주시거나, 문의 양식에 "추천"이라고 적어서 보내주세요.' },
         { q: '특정 종교인만 이용할 수 있나요?', a: '아니요, 저희는 기독교 단체이지만 종교와 관계없이 모든 분을 섬깁니다.' },
-        { q: '기부금은 세금 공제가 되나요?', a: '네, ESMO는 정식 등록된 비영리 단체로 세금 공제 영수증을 발급해 드립니다.' }
+        { q: '기부금은 세금 공제가 되나요?', a: '현재 비영리 단체(501(c)(3)) 승인 절차를 진행 중입니다. 세금 공제 여부에 대한 최신 정보는 문의해 주시기 바랍니다.' }
       ]
     },
     chat: {
