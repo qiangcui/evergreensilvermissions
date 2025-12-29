@@ -38,7 +38,7 @@ export const translations = {
     missionPage: {
       heroTitle: 'Serving with Purpose',
       historyTitle: 'Our Journey',
-      historyText: 'It began with a single visit. In the winter of 2005, Pastor Lee and a small group of youth volunteers visited a local nursing home to sing carols. The overwhelming response—tears of joy and hands reaching out for connection—sparked a realization: our seniors are often forgotten. Since then, ESMO has grown from a seasonal choir into a fully operational community organization providing year-round support.',
+      historyText: 'It began with a single visit. In the winter of 2005, Pastor Lee and a small group of youth volunteers visited a local nursing home to sing carols. The overwhelming response—tears of joy and hands reaching out for connection—sparked a realization: our seniors are often forgotten. Since then, ESMO has grown from a seasonal choir into a fully operational non-profit providing year-round support.',
       valuesTitle: 'Core Values',
       values: [
         { title: 'Dignity', desc: 'We believe every senior deserves to be treated with the utmost respect and honor.' },
@@ -48,9 +48,7 @@ export const translations = {
       ],
       teamTitle: 'Our Leadership',
       team: [
-        { name: 'Rev. Byoungil Song', role: 'Senior Pastor', bio: 'Chongshin Seminary Graduate, Master of Arts in New Testament (Talbot School of Theology), Doctor of Ministry (Denver Seminary).' },
-        { name: 'Sarah Jenkins', role: 'Program Director', bio: 'Certified Geriatric Care Specialist.' },
-        { name: 'Michael Park', role: 'Volunteer Coordinator', bio: 'Former youth pastor and community organizer.' }
+        { name: 'Rev. Byoungil Song', role: 'Senior Pastor', bio: 'Chongshin Seminary Graduate, Master of Arts in New Testament (Talbot School of Theology), Doctor of Ministry (Denver Seminary).' }
       ]
     },
     programs: {
@@ -141,8 +139,7 @@ export const translations = {
       footer: {
         rights: 'Evergreen Silver Missionary Organization. All rights reserved.',
         privacy: 'Privacy Policy',
-        terms: 'Terms of Service',
-        legalNotice: 'ESMO is currently in the process of applying for 501(c)(3) non-profit status. Contributions may not yet be tax-deductible.'
+        terms: 'Terms of Service'
       }
     },
     contactPage: {
@@ -150,7 +147,7 @@ export const translations = {
       faqs: [
         { q: 'How do I refer a senior for help?', a: 'Please call our main office or fill out the contact form with the subject line "Referral".' },
         { q: 'Is this organization religiously affiliated?', a: 'Yes, we are a Christian organization, but we serve everyone regardless of their faith background.' },
-        { q: 'Are donations tax-deductible?', a: 'We are currently in the process of applying for 501(c)(3) non-profit status. Please contact us for the latest information on tax deductibility.' }
+        { q: 'Are donations tax-deductible?', a: 'Yes, ESMO is a registered 501(c)(3) non-profit organization.' }
       ]
     },
     chat: {
@@ -200,7 +197,7 @@ export const translations = {
     missionPage: {
       heroTitle: '목적 있는 섬김',
       historyTitle: '우리의 여정',
-      historyText: '모든 것은 한 번의 방문으로 시작되었습니다. 2005년 겨울, 이 목사님과 청년 봉사자들이 캐럴을 부르기 위해 요양원을 찾았습니다. 눈물을 흘리며 손을 맞잡아오던 어르신들의 모습에서 우리는 깨달았습니다. 우리 어르신들이 잊혀져 가고 있다는 것을요. 그 후 ESMO는 계절 봉사대에서 연중무휴로 지원을 제공하는 봉사 단체로 성장했습니다.',
+      historyText: '모든 것은 한 번의 방문으로 시작되었습니다. 2005년 겨울, 이 목사님과 청년 봉사자들이 캐럴을 부르기 위해 요양원을 찾았습니다. 눈물을 흘리며 손을 맞잡아오던 어르신들의 모습에서 우리는 깨달았습니다. 우리 어르신들이 잊혀져 가고 있다는 것을요. 그 후 ESMO는 계절 봉사대에서 연중무휴로 지원을 제공하는 비영리 단체로 성장했습니다.',
       valuesTitle: '핵심 가치',
       values: [
         { title: '존엄', desc: '모든 어르신은 최고의 존중과 명예로 대우받아야 합니다.' },
@@ -210,9 +207,7 @@ export const translations = {
       ],
       teamTitle: '섬기는 사람들',
       team: [
-        { name: '송병일 목사', role: '담임목사', bio: '총신대학교 신학대학원 졸업, Talbot School of Theology (신약학 석사), Denver Seminary (목회학 박사).' },
-        { name: '사라 정', role: '프로그램 디렉터', bio: '노인 요양 전문 자격 보유.' },
-        { name: '박마이클', role: '자원봉사 코디네이터', bio: '전 청년부 목사 및 커뮤니티 기획자.' }
+        { name: '송병일 목사', role: '담임목사', bio: '총신대학교 신학대학원 졸업, Talbot School of Theology (신약학 석사), Denver Seminary (목회학 박사).' }
       ]
     },
     programs: {
@@ -303,8 +298,7 @@ export const translations = {
       footer: {
         rights: '에버그린 실버 선교회. All rights reserved.',
         privacy: '개인정보 처리방침',
-        terms: '이용 약관',
-        legalNotice: 'ESMO는 현재 비영리 단체(501(c)(3)) 승인 절차 진행 중입니다. 기부금에 대한 세금 공제는 아직 적용되지 않을 수 있습니다.'
+        terms: '이용 약관'
       }
     },
     contactPage: {
@@ -312,7 +306,7 @@ export const translations = {
       faqs: [
         { q: '도움이 필요한 어르신은 어떻게 추천하나요?', a: '사무실로 전화 주시거나, 문의 양식에 "추천"이라고 적어서 보내주세요.' },
         { q: '특정 종교인만 이용할 수 있나요?', a: '아니요, 저희는 기독교 단체이지만 종교와 관계없이 모든 분을 섬깁니다.' },
-        { q: '기부금은 세금 공제가 되나요?', a: '현재 비영리 단체(501(c)(3)) 승인 절차를 진행 중입니다. 세금 공제 여부에 대한 최신 정보는 문의해 주시기 바랍니다.' }
+        { q: '기부금은 세금 공제가 되나요?', a: '네, ESMO는 정식 등록된 비영리 단체로 세금 공제 영수증을 발급해 드립니다.' }
       ]
     },
     chat: {

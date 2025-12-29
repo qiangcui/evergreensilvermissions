@@ -62,15 +62,15 @@ const MissionPage: React.FC = () => {
       <section className="py-20 bg-evergreen-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-serif font-bold text-center mb-16">{t.missionPage.teamTitle}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="flex justify-center">
             {t.missionPage.team.map((member, index) => (
-              <div key={index} className="flex flex-col items-center text-center">
-                <div className="w-40 h-40 rounded-full overflow-hidden mb-6 border-4 border-evergreen-700">
-                  <img src={`https://i.pravatar.cc/300?img=${index + 10}`} alt={member.name} className="w-full h-full object-cover" />
+              <div key={index} className="flex flex-col items-center text-center max-w-lg">
+                <div className="w-56 h-56 rounded-full overflow-hidden mb-6 border-4 border-evergreen-700 shadow-xl">
+                  <img src={`${import.meta.env.BASE_URL}images/pastor-song.png`} alt={member.name} className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                <p className="text-evergreen-300 font-medium mb-3">{member.role}</p>
-                <p className="text-silver-300 text-sm max-w-xs">{member.bio}</p>
+                <h3 className="text-2xl font-bold mb-2">{member.name}</h3>
+                <p className="text-evergreen-300 font-medium mb-4 text-lg">{member.role}</p>
+                <p className="text-silver-300 text-base leading-relaxed">{member.bio}</p>
               </div>
             ))}
           </div>
