@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
+    base: '/evergreensilvermissions/',
     define: {
       // Use the actual key if available (dev), or a placeholder string (prod/docker build)
       // The Dockerfile entrypoint will replace this placeholder with the real runtime env var
