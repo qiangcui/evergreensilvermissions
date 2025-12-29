@@ -10,26 +10,32 @@ const MissionSection: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchInspiration = async () => {
-      setLoading(true);
-      setInspiration(null); // Reset when language changes
-      try {
-        const data = await getDailyInspiration(language);
-        setInspiration(data);
-      } catch (e) {
-        console.error(e);
-      } finally {
-        setLoading(false);
-      }
+    // Hardcoded fallback data to completely bypass API
+    const staticData = language === 'ko' ? {
+      text: "백발은 영화의 면류관이라 공의로운 길에서 얻으리라",
+      reference: "잠언 16:31",
+      reflection: "살아온 모든 날들이 하나님의 은혜이자 지혜의 증거입니다."
+    } : {
+      text: "Gray hair is a crown of splendor; it is attained in the way of righteousness.",
+      reference: "Proverbs 16:31",
+      reflection: "Every year lived is a testament to grace and wisdom gained along the journey."
     };
-    fetchInspiration();
+
+    setLoading(true);
+    // Simulate slight delay for effect, but no API call
+    const timer = setTimeout(() => {
+      setInspiration(staticData);
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
   }, [language]);
 
   return (
     <section id="mission" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
+
           {/* Text Content */}
           <div className="space-y-8">
             <div className="inline-block px-4 py-1 bg-evergreen-100 text-evergreen-800 rounded-full text-sm font-bold tracking-wide uppercase">
@@ -47,7 +53,7 @@ const MissionSection: React.FC = () => {
                 {t.mission.p2}
               </p>
             </div>
-            
+
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-6 border-t border-silver-200">
               <div>
@@ -67,7 +73,7 @@ const MissionSection: React.FC = () => {
 
           {/* Dynamic Card */}
           <div className="relative">
-             {/* Decorative blob */}
+            {/* Decorative blob */}
             <div className="absolute -top-10 -right-10 w-64 h-64 bg-evergreen-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse"></div>
             <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-silver-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
 
@@ -76,7 +82,7 @@ const MissionSection: React.FC = () => {
                 <Sparkles className="text-yellow-500" size={24} />
                 <h3 className="text-xl font-bold text-silver-800">{t.mission.inspiration.title}</h3>
               </div>
-              
+
               {!loading && inspiration ? (
                 <div className="animate-fade-in">
                   <Quote size={40} className="text-evergreen-200 mb-4" />
@@ -86,15 +92,15 @@ const MissionSection: React.FC = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-silver-100 pt-4">
                     <span className="font-bold text-evergreen-700">— {inspiration.reference}</span>
                   </div>
-                   <p className="mt-4 text-sm text-silver-500 bg-silver-50 p-3 rounded-lg border border-silver-100 break-keep">
-                      <span className="font-bold text-evergreen-600">{t.mission.inspiration.reflection}</span> {inspiration.reflection}
-                    </p>
+                  <p className="mt-4 text-sm text-silver-500 bg-silver-50 p-3 rounded-lg border border-silver-100 break-keep">
+                    <span className="font-bold text-evergreen-600">{t.mission.inspiration.reflection}</span> {inspiration.reflection}
+                  </p>
                 </div>
               ) : (
-                 <div className="flex flex-col items-center justify-center py-10 space-y-4 min-h-[250px]">
-                   <div className="w-8 h-8 border-4 border-evergreen-200 border-t-evergreen-600 rounded-full animate-spin"></div>
-                   <p className="text-silver-400 text-sm">{t.mission.inspiration.loading}</p>
-                 </div>
+                <div className="flex flex-col items-center justify-center py-10 space-y-4 min-h-[250px]">
+                  <div className="w-8 h-8 border-4 border-evergreen-200 border-t-evergreen-600 rounded-full animate-spin"></div>
+                  <p className="text-silver-400 text-sm">{t.mission.inspiration.loading}</p>
+                </div>
               )}
             </div>
           </div>
