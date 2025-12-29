@@ -13,6 +13,8 @@ import MissionPage from './components/MissionPage';
 import ProgramsPage from './components/ProgramsPage';
 import DonatePage from './components/DonatePage';
 import ContactPage from './components/ContactPage';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
 
 import { LanguageProvider } from './context/LanguageContext';
 
@@ -40,6 +42,8 @@ function App() {
               <Route path="/programs" element={<ProgramsPage />} />
               <Route path="/donate" element={<DonatePage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsOfService />} />
             </Routes>
           </main>
           <Footer />

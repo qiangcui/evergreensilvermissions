@@ -16,8 +16,8 @@ const Footer: React.FC = () => {
             {t.contact.footer.legalNotice}
           </p>
           <div className="flex gap-6 mt-1">
-            <Link to="#" className="hover:text-white transition-colors">{t.contact.footer.privacy}</Link>
-            <Link to="#" className="hover:text-white transition-colors">{t.contact.footer.terms}</Link>
+            <Link to="/privacy" className="hover:text-white transition-colors">{t.contact.footer.privacy}</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">{t.contact.footer.terms}</Link>
           </div>
         </div>
       </div>
