@@ -1,21 +1,50 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate submission
-    setTimeout(() => {
+    setIsLoading(true);
+    setError(null);
+
+    // Replace these with your actual keys or use VITE_ env variables
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey || serviceId === 'YOUR_SERVICE_ID') {
+      console.error('EmailJS Configuration Missing. Please check your .env or GitHub Secrets.');
+      setError('Configuration error. Please contact the administrator.');
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const result = await emailjs.send(serviceId, templateId, {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: 'Evergreen Silver Missions',
+      }, publicKey);
+
+      console.log('Email successfully sent!', result.status, result.text);
       setSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
-      // Reset success message after 5 seconds
       setTimeout(() => setSubmitted(false), 5000);
-    }, 1000);
+    } catch (err) {
+      console.error('EmailJS Error Details:', err);
+      setError('Failed to send message. Please try again later.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -73,6 +102,11 @@ const Contact: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {error && (
+                  <div className="bg-red-900/30 border border-red-800 text-red-200 p-4 rounded-lg text-sm">
+                    {error}
+                  </div>
+                )}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-1">{t.contact.form.name}</label>
                   <input
@@ -114,10 +148,11 @@ const Contact: React.FC = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-evergreen-600 hover:bg-evergreen-500 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+                  disabled={isLoading}
+                  className="w-full bg-evergreen-600 hover:bg-evergreen-500 disabled:bg-evergreen-400 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
                 >
-                  {t.contact.form.submit}
-                  <Send size={18} />
+                  {isLoading ? 'Sending...' : t.contact.form.submit}
+                  {!isLoading && <Send size={18} />}
                 </button>
               </form>
             )}
