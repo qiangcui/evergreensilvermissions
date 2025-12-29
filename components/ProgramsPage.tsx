@@ -12,9 +12,9 @@ const ProgramsPage: React.FC = () => {
       <div className="relative bg-evergreen-900 py-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1448375240586-dfd8d395ea6c?auto=format&fit=crop&w=1920&q=80"
-            alt="Peaceful forest with sunlight"
-            className="w-full h-full object-cover opacity-40"
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80"
+            alt="Scenic mountain landscape"
+            className="w-full h-full object-cover opacity-50"
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">

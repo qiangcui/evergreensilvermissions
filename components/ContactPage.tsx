@@ -8,18 +8,6 @@ const ContactPage: React.FC = () => {
 
     return (
         <div className="pt-16 min-h-screen bg-silver-900">
-            {/* Simple Page Hero */}
-            <div className="relative h-64 bg-evergreen-900 overflow-hidden">
-                <img
-                    src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?auto=format&fit=crop&w=1920&q=80"
-                    alt="Clear blue sky over a landscape"
-                    className="w-full h-full object-cover opacity-60"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <h1 className="text-4xl md:text-5xl font-serif font-bold text-white shadow-sm">{t.contact.title}</h1>
-                </div>
-            </div>
-
             {/* Contact Form Section */}
             <Contact />
 
