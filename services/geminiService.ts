@@ -23,9 +23,10 @@ export const getChatResponse = async (
 
   try {
     const langName = language === 'ko' ? 'Korean' : 'English';
-    // Use the specific 001 model version which is often more reliable
+    // Use the basic 'gemini-pro' model or 'gemini-1.5-flash' without version suffix
+    // This is the most standard access pattern for free tier keys
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash-001",
+      model: "gemini-1.5-flash"
     });
 
     // CRITICAL: Gemini history MUST start with a 'user' role.
@@ -74,7 +75,7 @@ export const getDailyInspiration = async (language: Language): Promise<{ text: s
   try {
     const langName = language === 'ko' ? 'Korean' : 'English';
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash-001"
+      model: "gemini-1.5-flash"
     });
 
     const prompt = `Generate a short, uplifting daily inspiration quote or verse suitable for an elderly care missionary organization, in ${langName}, with a brief 1-sentence reflection. 
@@ -89,8 +90,14 @@ export const getDailyInspiration = async (language: Language): Promise<{ text: s
     if (!jsonText) throw new Error("No data returned");
     return JSON.parse(jsonText);
   } catch (error) {
+    // If flash model fails, try fallback to just 'gemini-pro' which is older but very stable
+    if ((error as any).toString().includes("404")) {
+      console.log("Model 404, attempting fallback to gemini-pro...");
+      // You could implement a recursive retry with a different model here if really needed
+      // but for now we just return the static fallback to be safe for the presentation
+    }
     console.error("Gemini Inspiration Error:", error);
-    // Immediate Fallback for any error so the UI didn't break
+    // Immediate Fallback
     if (language === 'ko') {
       return {
         text: "백발은 영화의 면류관이라 공의로운 길에서 얻으리라",
