@@ -2,9 +2,11 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Language } from "../constants/translations";
 
 // Use Vite's standard way to access environment variables
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || "";
+const API_KEY = (import.meta.env.VITE_GEMINI_API_KEY || "").trim();
 
-// Force API version 'v1' to avoid 'v1beta' issues reported in some regions
+// Debugging: Log key status (safe)
+console.log("Gemini API Key Status:", API_KEY ? `Present (Length: ${API_KEY.length})` : "Missing");
+
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 export const getChatResponse = async (
@@ -21,9 +23,10 @@ export const getChatResponse = async (
 
   try {
     const langName = language === 'ko' ? 'Korean' : 'English';
+    // Use the specific 001 model version which is often more reliable
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
-    }, { apiVersion: 'v1' }); // Explicitly use v1
+      model: "gemini-1.5-flash-001",
+    });
 
     // CRITICAL: Gemini history MUST start with a 'user' role.
     let formattedHistory = history.map(h => ({
@@ -31,23 +34,35 @@ export const getChatResponse = async (
       parts: [{ text: h.text }]
     }));
 
-    // Clean history: must start with user, and roles must alternate
+    // Clean history: must start with user
     while (formattedHistory.length > 0 && formattedHistory[0].role !== 'user') {
       formattedHistory.shift();
     }
 
-    // Final safety check: if empty after cleaning, just send as new message
-    const chatConfig = formattedHistory.length > 0 ? { history: formattedHistory } : {};
-    const chat = model.startChat(chatConfig);
+    // Ensure roles alternate
+    const validHistory: typeof formattedHistory = [];
+    if (formattedHistory.length > 0) {
+      validHistory.push(formattedHistory[0]);
+      for (let i = 1; i < formattedHistory.length; i++) {
+        if (formattedHistory[i].role !== validHistory[validHistory.length - 1].role) {
+          validHistory.push(formattedHistory[i]);
+        }
+      }
+    }
+
+    const chat = model.startChat({
+      history: validHistory
+    });
 
     const result = await chat.sendMessage(message);
     const response = await result.response;
     return response.text() || (language === 'ko' ? "죄송합니다. 지금은 연결이 원활하지 않습니다." : "I apologize, I'm having trouble connecting.");
   } catch (error) {
     console.error("Gemini Chat Error:", error);
+    // Fallback for 404/Quota issues
     return language === 'ko'
-      ? "현재 시스템 점검 중입니다. 이메일로 직접 문의해 주시기 바랍니다."
-      : "I'm currently undergoing maintenance to serve you better. Please feel free to email us directly.";
+      ? "지금은 AI를 사용할 수 없습니다. (오류: 연결 불안정). 잠시 후 다시 시도해주세요."
+      : "The AI service is currently unavailable (Connection Error). Please try again later.";
   }
 };
 
@@ -59,8 +74,8 @@ export const getDailyInspiration = async (language: Language): Promise<{ text: s
   try {
     const langName = language === 'ko' ? 'Korean' : 'English';
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash"
-    }, { apiVersion: 'v1' }); // Explicitly use v1
+      model: "gemini-1.5-flash-001"
+    });
 
     const prompt = `Generate a short, uplifting daily inspiration quote or verse suitable for an elderly care missionary organization, in ${langName}, with a brief 1-sentence reflection. 
     Return the result in JSON format ONLY with keys: "text" (the quote), "reference" (the source), and "reflection" (the 1-sentence encouragement). Do not include markdown code blocks.`;
@@ -69,13 +84,13 @@ export const getDailyInspiration = async (language: Language): Promise<{ text: s
     const response = await result.response;
     let jsonText = response.text().trim();
 
-    // Remove markdown code blocks if present
     jsonText = jsonText.replace(/```json\n?|```/g, '');
 
     if (!jsonText) throw new Error("No data returned");
     return JSON.parse(jsonText);
   } catch (error) {
     console.error("Gemini Inspiration Error:", error);
+    // Immediate Fallback for any error so the UI didn't break
     if (language === 'ko') {
       return {
         text: "백발은 영화의 면류관이라 공의로운 길에서 얻으리라",
