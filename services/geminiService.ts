@@ -9,6 +9,10 @@ console.log("Gemini API Key Status:", API_KEY ? `Present (Length: ${API_KEY.leng
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 
+// We use 'gemini-2.0-flash-lite-001' as it is the most lightweight model 
+// available in your list, effectively maximizing your rate limit budget.
+const MODEL_NAME = "gemini-2.0-flash-lite-001";
+
 export const getChatResponse = async (
   message: string,
   history: { role: string; text: string }[],
@@ -23,9 +27,8 @@ export const getChatResponse = async (
 
   try {
     const langName = language === 'ko' ? 'Korean' : 'English';
-    // Using 'gemini-2.0-flash' as it appears in your user's available model list
     const model = genAI.getGenerativeModel({
-      model: "gemini-2.0-flash"
+      model: MODEL_NAME
     });
 
     // CRITICAL: Gemini history MUST start with a 'user' role.
@@ -61,8 +64,8 @@ export const getChatResponse = async (
     console.error("Gemini Chat Error:", error);
     // Fallback for 404/Quota issues
     return language === 'ko'
-      ? "지금은 AI를 사용할 수 없습니다. (오류: 연결 불안정). 잠시 후 다시 시도해주세요."
-      : "The AI service is currently unavailable (Connection Error). Please try again later.";
+      ? "지금은 AI를 사용할 수 없습니다. 잠시 후 다시 시도해주세요."
+      : "The AI service is currently unavailable. Please try again later.";
   }
 };
 
@@ -74,7 +77,7 @@ export const getDailyInspiration = async (language: Language): Promise<{ text: s
   try {
     const langName = language === 'ko' ? 'Korean' : 'English';
     const model = genAI.getGenerativeModel({
-      model: "gemini-2.0-flash"
+      model: MODEL_NAME
     });
 
     const prompt = `Generate a short, uplifting daily inspiration quote or verse suitable for an elderly care missionary organization, in ${langName}, with a brief 1-sentence reflection. 
