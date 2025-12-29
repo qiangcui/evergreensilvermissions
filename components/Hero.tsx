@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero.png"
+          src="images/hero.png"
           alt="Serene nature landscape with evergreen trees and a peaceful lake"
           className="w-full h-full object-cover"
         />
