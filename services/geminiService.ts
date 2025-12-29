@@ -9,9 +9,8 @@ console.log("Gemini API Key Status:", API_KEY ? `Present (Length: ${API_KEY.leng
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 
-// Fallback to the classic 'gemini-pro' which often has the most stable free tier allocation
-// If flash-lite is hitting 429s, standard Pro is the next best bet for stability.
-const MODEL_NAME = "gemini-pro";
+// User has upgraded to paid tier, so we can use the most efficient model safely.
+const MODEL_NAME = "gemini-2.0-flash-lite-001";
 
 export const getChatResponse = async (
   message: string,
@@ -87,7 +86,7 @@ export const getDailyInspiration = async (language: Language): Promise<{ text: s
     const response = await result.response;
     let jsonText = response.text().trim();
 
-    // Clean up potentially messy JSON response from standard Pro model
+    // Clean up
     jsonText = jsonText.replace(/```json\n?|```/g, '');
     const firstBrace = jsonText.indexOf('{');
     const lastBrace = jsonText.lastIndexOf('}');
