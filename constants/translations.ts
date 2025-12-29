@@ -38,7 +38,7 @@ export const translations = {
     missionPage: {
       heroTitle: 'Serving with Purpose',
       historyTitle: 'Our Journey',
-      historyText: 'It began with a single visit. In the winter of 2005, Pastor Lee and a small group of youth volunteers visited a local nursing home to sing carols. The overwhelming response—tears of joy and hands reaching out for connection—sparked a realization: our seniors are often forgotten. Since then, ESMO has grown from a seasonal choir into a fully operational non-profit providing year-round support.',
+      historyText: 'It began with a single visit. In the winter of 2005, Pastor Lee and a small group of youth volunteers visited a local nursing home to sing carols. The overwhelming response—tears of joy and hands reaching out for connection—sparked a realization: our seniors are often forgotten. Since then, ESMO has grown from a seasonal choir into a fully operational community organization providing year-round support.',
       valuesTitle: 'Core Values',
       values: [
         { title: 'Dignity', desc: 'We believe every senior deserves to be treated with the utmost respect and honor.' },
@@ -139,7 +139,8 @@ export const translations = {
       footer: {
         rights: 'Evergreen Silver Missionary Organization. All rights reserved.',
         privacy: 'Privacy Policy',
-        terms: 'Terms of Service'
+        terms: 'Terms of Service',
+        legalNotice: 'ESMO is currently in the process of applying for 501(c)(3) non-profit status. Contributions may not yet be tax-deductible.'
       }
     },
     contactPage: {
@@ -147,7 +148,7 @@ export const translations = {
       faqs: [
         { q: 'How do I refer a senior for help?', a: 'Please call our main office or fill out the contact form with the subject line "Referral".' },
         { q: 'Is this organization religiously affiliated?', a: 'Yes, we are a Christian organization, but we serve everyone regardless of their faith background.' },
-        { q: 'Are donations tax-deductible?', a: 'Yes, ESMO is a registered 501(c)(3) non-profit organization.' }
+        { q: 'Are donations tax-deductible?', a: 'ESMO is currently applying for 501(c)(3) non-profit status. Please check with us regarding the current deductibility of your donation.' }
       ]
     },
     chat: {
@@ -197,7 +198,7 @@ export const translations = {
     missionPage: {
       heroTitle: '목적 있는 섬김',
       historyTitle: '우리의 여정',
-      historyText: '모든 것은 한 번의 방문으로 시작되었습니다. 2005년 겨울, 이 목사님과 청년 봉사자들이 캐럴을 부르기 위해 요양원을 찾았습니다. 눈물을 흘리며 손을 맞잡아오던 어르신들의 모습에서 우리는 깨달았습니다. 우리 어르신들이 잊혀져 가고 있다는 것을요. 그 후 ESMO는 계절 봉사대에서 연중무휴로 지원을 제공하는 비영리 단체로 성장했습니다.',
+      historyText: '모든 것은 한 번의 방문으로 시작되었습니다. 2005년 겨울, 이 목사님과 청년 봉사자들이 캐럴을 부르기 위해 요양원을 찾았습니다. 눈물을 흘리며 손을 맞잡아오던 어르신들의 모습에서 우리는 깨달았습니다. 우리 어르신들이 잊혀져 가고 있다는 것을요. 그 후 ESMO는 계절 봉사대에서 연중무휴로 지원을 제공하는 봉사 단체로 성장했습니다.',
       valuesTitle: '핵심 가치',
       values: [
         { title: '존엄', desc: '모든 어르신은 최고의 존중과 명예로 대우받아야 합니다.' },
@@ -298,7 +299,8 @@ export const translations = {
       footer: {
         rights: '에버그린 실버 선교회. All rights reserved.',
         privacy: '개인정보 처리방침',
-        terms: '이용 약관'
+        terms: '이용 약관',
+        legalNotice: 'ESMO는 현재 501(c)(3) 비영리 단체 승인 신청 중입니다. 현재는 기부금에 대한 세금 공제가 불가능할 수 있습니다.'
       }
     },
     contactPage: {
@@ -306,7 +308,7 @@ export const translations = {
       faqs: [
         { q: '도움이 필요한 어르신은 어떻게 추천하나요?', a: '사무실로 전화 주시거나, 문의 양식에 "추천"이라고 적어서 보내주세요.' },
         { q: '특정 종교인만 이용할 수 있나요?', a: '아니요, 저희는 기독교 단체이지만 종교와 관계없이 모든 분을 섬깁니다.' },
-        { q: '기부금은 세금 공제가 되나요?', a: '네, ESMO는 정식 등록된 비영리 단체로 세금 공제 영수증을 발급해 드립니다.' }
+        { q: '기부금은 세금 공제가 되나요?', a: '현재 501(c)(3) 비영리 단체 승인 절차를 진행 중입니다. 자세한 사항은 문의해 주시기 바랍니다.' }
       ]
     },
     chat: {
