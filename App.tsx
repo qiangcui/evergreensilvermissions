@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import MissionSection from './components/MissionSection';
@@ -29,7 +29,7 @@ const HomePage = () => (
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter basename="/evergreensilvermissions">
       <LanguageProvider>
         <div className="min-h-screen bg-silver-50 font-sans text-silver-800 antialiased selection:bg-evergreen-200 selection:text-evergreen-900 flex flex-col">
           <Navbar />
@@ -45,7 +45,7 @@ function App() {
           <Footer />
         </div>
       </LanguageProvider>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
