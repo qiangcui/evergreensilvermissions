@@ -5,7 +5,8 @@ import { Language } from "../constants/translations";
 const API_KEY = (import.meta.env.VITE_GEMINI_API_KEY || "").trim();
 
 // Debugging: Log key status (safe)
-console.log("Gemini API Key Status:", API_KEY ? `Present (Length: ${API_KEY.length})` : "Missing");
+// Debugging: Log key status (WARNING: This exposes your key in the browser console!)
+console.log("Gemini API Key:", API_KEY);
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 
