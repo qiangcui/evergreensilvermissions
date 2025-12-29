@@ -11,8 +11,8 @@ export default defineConfig(({ mode }) => {
     define: {
       // Use the actual key if available (dev), or a placeholder string (prod/docker build)
       // The Dockerfile entrypoint will replace this placeholder with the real runtime env var
-      'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY || "__VITE_API_KEY_PLACEHOLDER__"),
-      'process.env': {} 
+      'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY || process.env.GEMINI_API_KEY || ""),
+      'process.env': {}
     },
     server: {
       port: 8080,
