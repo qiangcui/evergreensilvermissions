@@ -1,7 +1,8 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Language } from "../constants/translations";
 
-const API_KEY = process.env.API_KEY || "";
+// Use Vite's standard way to access environment variables
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || "";
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 export const getChatResponse = async (
@@ -10,9 +11,10 @@ export const getChatResponse = async (
   language: Language
 ): Promise<string> => {
   if (!API_KEY) {
+    console.error("VITE_GEMINI_API_KEY is not defined");
     return language === 'ko'
-      ? "API 키가 설정되지 않았습니다. 관리자에게 문의하세요."
-      : "API Key is not configured. Please contact the administrator.";
+      ? "API 키가 설정되지 않았습니다. GitHub Secrets에서 GEMINI_API_KEY를 확인하세요."
+      : "API Key is not configured. Please check GEMINI_API_KEY in GitHub Secrets.";
   }
 
   try {
@@ -31,16 +33,24 @@ export const getChatResponse = async (
         If asked about donations, mention we accept online donations and physical goods like canned food and warm clothes.`,
     });
 
+    // CRITICAL: Gemini history MUST start with a 'user' role.
+    // If the first message in history is from 'model', we drop it.
+    let formattedHistory = history.map(h => ({
+      role: h.role === 'model' ? 'model' : 'user',
+      parts: [{ text: h.text }]
+    }));
+
+    while (formattedHistory.length > 0 && formattedHistory[0].role !== 'user') {
+      formattedHistory.shift();
+    }
+
     const chat = model.startChat({
-      history: history.map(h => ({
-        role: h.role === 'model' ? 'model' : 'user',
-        parts: [{ text: h.text }]
-      }))
+      history: formattedHistory
     });
 
     const result = await chat.sendMessage(message);
     const response = await result.response;
-    return response.text() || (language === 'ko' ? "죄송합니다. 지금은 연결이 원활하지 않습니다. 나중에 다시 시도해 주세요." : "I apologize, I'm having trouble connecting right now. Please try again later.");
+    return response.text() || (language === 'ko' ? "죄송합니다. 지금은 연결이 원활하지 않습니다." : "I apologize, I'm having trouble connecting.");
   } catch (error) {
     console.error("Gemini Chat Error:", error);
     return language === 'ko'
@@ -57,18 +67,19 @@ export const getDailyInspiration = async (language: Language): Promise<{ text: s
   try {
     const langName = language === 'ko' ? 'Korean' : 'English';
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
-      generationConfig: {
-        responseMimeType: "application/json",
-      }
+      model: "gemini-1.5-flash"
     });
 
     const prompt = `Generate a short, uplifting daily inspiration quote or verse suitable for an elderly care missionary organization, in ${langName}, with a brief 1-sentence reflection. 
-    Return the result in JSON format with keys: "text" (the quote), "reference" (the source), and "reflection" (the 1-sentence encouragement).`;
+    Return the result in JSON format ONLY with keys: "text" (the quote), "reference" (the source), and "reflection" (the 1-sentence encouragement). Do not include markdown code blocks.`;
 
+    // Using simple text generation for JSON to avoid schema issues if the key is restricted
     const result = await model.generateContent(prompt);
     const response = await result.response;
-    const jsonText = response.text();
+    let jsonText = response.text().trim();
+
+    // Remove markdown code blocks if present
+    jsonText = jsonText.replace(/```json\n?|```/g, '');
 
     if (!jsonText) throw new Error("No data returned");
     return JSON.parse(jsonText);
