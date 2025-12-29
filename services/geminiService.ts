@@ -10,8 +10,9 @@ console.log("Gemini API Key:", API_KEY);
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 
-// User has upgraded to paid tier, so we can use the most efficient model safely.
-const MODEL_NAME = "gemini-2.0-flash-lite-001";
+// Switching to 1.5-flash because it has a generous free tier (15 RPM) 
+// which acts as a safety net while billing propagates for the paid tier.
+const MODEL_NAME = "gemini-1.5-flash";
 
 export const getChatResponse = async (
   message: string,
