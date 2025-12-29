@@ -7,7 +7,6 @@ import Programs from './components/Programs';
 import Donate from './components/Donate';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import ChatBot from './components/ChatBot';
 
 // Import New Detailed Pages
 import MissionPage from './components/MissionPage';
@@ -44,7 +43,6 @@ function App() {
             </Routes>
           </main>
           <Footer />
-          <ChatBot />
         </div>
       </LanguageProvider>
     </HashRouter>
