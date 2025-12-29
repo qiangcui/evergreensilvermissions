@@ -11,9 +11,14 @@ const Footer: React.FC = () => {
         <p className="text-silver-500 text-sm text-center md:text-left">
           © 2026 {t.contact.footer.rights}
         </p>
-        <div className="flex gap-6 text-sm text-silver-500">
-          <Link to="#" className="hover:text-white transition-colors">{t.contact.footer.privacy}</Link>
-          <Link to="#" className="hover:text-white transition-colors">{t.contact.footer.terms}</Link>
+        <div className="flex flex-col items-center md:items-end gap-2 text-silver-500 text-sm">
+          <p className="text-center md:text-right max-w-md italic opacity-70">
+            {t.contact.footer.legalNotice}
+          </p>
+          <div className="flex gap-6 mt-1">
+            <Link to="#" className="hover:text-white transition-colors">{t.contact.footer.privacy}</Link>
+            <Link to="#" className="hover:text-white transition-colors">{t.contact.footer.terms}</Link>
+          </div>
         </div>
       </div>
     </div>

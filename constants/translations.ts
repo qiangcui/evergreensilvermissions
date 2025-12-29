@@ -38,7 +38,7 @@ export const translations = {
     missionPage: {
       heroTitle: 'Serving with Purpose',
       historyTitle: 'Our Journey',
-      historyText: 'It began with a single visit. In the winter of 2005, Pastor Lee and a small group of youth volunteers visited a local nursing home to sing carols. The overwhelming response—tears of joy and hands reaching out for connection—sparked a realization: our seniors are often forgotten. Since then, ESMO has grown from a seasonal choir into a fully operational non-profit providing year-round support.',
+      historyText: 'It began with a single visit. In the winter of 2005, Pastor Lee and a small group of youth volunteers visited a local nursing home to sing carols. The overwhelming response—tears of joy and hands reaching out for connection—sparked a realization: our seniors are often forgotten. Since then, ESMO has grown from a seasonal choir into a fully operational community organization providing year-round support.',
       valuesTitle: 'Core Values',
       values: [
         { title: 'Dignity', desc: 'We believe every senior deserves to be treated with the utmost respect and honor.' },
@@ -141,7 +141,8 @@ export const translations = {
       footer: {
         rights: 'Evergreen Silver Missionary Organization. All rights reserved.',
         privacy: 'Privacy Policy',
-        terms: 'Terms of Service'
+        terms: 'Terms of Service',
+        legalNotice: 'ESMO is currently in the process of applying for 501(c)(3) non-profit status. Contributions may not yet be tax-deductible.'
       }
     },
     contactPage: {
@@ -199,7 +200,7 @@ export const translations = {
     missionPage: {
       heroTitle: '목적 있는 섬김',
       historyTitle: '우리의 여정',
-      historyText: '모든 것은 한 번의 방문으로 시작되었습니다. 2005년 겨울, 이 목사님과 청년 봉사자들이 캐럴을 부르기 위해 요양원을 찾았습니다. 눈물을 흘리며 손을 맞잡아오던 어르신들의 모습에서 우리는 깨달았습니다. 우리 어르신들이 잊혀져 가고 있다는 것을요. 그 후 ESMO는 계절 봉사대에서 연중무휴로 지원을 제공하는 비영리 단체로 성장했습니다.',
+      historyText: '모든 것은 한 번의 방문으로 시작되었습니다. 2005년 겨울, 이 목사님과 청년 봉사자들이 캐럴을 부르기 위해 요양원을 찾았습니다. 눈물을 흘리며 손을 맞잡아오던 어르신들의 모습에서 우리는 깨달았습니다. 우리 어르신들이 잊혀져 가고 있다는 것을요. 그 후 ESMO는 계절 봉사대에서 연중무휴로 지원을 제공하는 봉사 단체로 성장했습니다.',
       valuesTitle: '핵심 가치',
       values: [
         { title: '존엄', desc: '모든 어르신은 최고의 존중과 명예로 대우받아야 합니다.' },
@@ -302,7 +303,8 @@ export const translations = {
       footer: {
         rights: '에버그린 실버 선교회. All rights reserved.',
         privacy: '개인정보 처리방침',
-        terms: '이용 약관'
+        terms: '이용 약관',
+        legalNotice: 'ESMO는 현재 비영리 단체(501(c)(3)) 승인 절차 진행 중입니다. 기부금에 대한 세금 공제는 아직 적용되지 않을 수 있습니다.'
       }
     },
     contactPage: {
