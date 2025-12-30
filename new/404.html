@@ -12,21 +12,12 @@
         // to the new url with a special query string like:
         // https://qiangcui.github.io/evergreensilvermissions/?p=/programs&q=key=value
 
-        var l = window.location;
-        var segments = l.pathname.split('/');
-        var repoName = 'evergreensilvermissions';
-        var spaRoutes = ['mission', 'programs', 'donate', 'contact', 'privacy', 'terms', 'register'];
-        
-        // Default is 1 (the repo name)
-        // If the segment after repo is not a known route, treat it as a branch/subdirectory
         var pathSegmentsToKeep = 1;
-        if (segments[2] && !spaRoutes.includes(segments[2])) {
-          pathSegmentsToKeep = 2;
-        }
 
+        var l = window.location;
         l.replace(
             l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            segments.slice(0, 1 + pathSegmentsToKeep).join('/') + '/?p=/' +
+            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?p=/' +
             l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
             (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
             l.hash
