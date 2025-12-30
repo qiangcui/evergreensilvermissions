@@ -1,0 +1,40 @@
+name: Cleanup Preview Folders
+
+on:
+  delete:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    # Only run if a branch (not a tag) was deleted, and it's not main or gh-pages
+    if: github.event.ref_type == 'branch' && github.event.ref != 'main' && github.event.ref != 'gh-pages'
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Remove preview folder
+        run: |
+          FOLDER_NAME="${{ github.event.ref }}"
+          if [ -d "$FOLDER_NAME" ]; then
+            echo "Removing preview folder: $FOLDER_NAME"
+            rm -rf "$FOLDER_NAME"
+            
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            
+            git add .
+            # Check if there are changes to commit
+            if git diff-index --quiet HEAD --; then
+              echo "No changes to commit"
+            else
+              git commit -m "Cleanup preview for deleted branch: $FOLDER_NAME"
+              git push origin gh-pages
+            fi
+          else
+            echo "Folder $FOLDER_NAME does not exist in gh-pages branch. No cleanup needed."
+          fi
