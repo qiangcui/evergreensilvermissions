@@ -22,6 +22,7 @@ const Navbar: React.FC = () => {
     { label: t.nav.mission, path: '/mission' },
     { label: t.nav.programs, path: '/programs' },
     { label: t.nav.donate, path: '/donate' },
+    { label: t.nav.register, path: '/register' },
     { label: t.nav.contact, path: '/contact' },
   ];
 
