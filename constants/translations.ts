@@ -8,6 +8,7 @@ export const translations = {
       programs: 'Programs',
       donate: 'Get Involved',
       contact: 'Contact',
+      register: 'Register',
       donateButton: 'Donate',
       logo: 'Evergreen Silver',
     },
@@ -159,6 +160,27 @@ export const translations = {
       typing: 'Grace is typing...',
       initialMessage: 'Hello! I\'m Grace, a volunteer assistant for Evergreen Silver. How can I help you today?',
       error: 'I\'m having a little trouble thinking right now. Could you ask me again?'
+    },
+    registration: {
+      title: 'Program Registration',
+      subtitle: 'Join us for our upcoming seminars, mission trips, and Bible studies.',
+      name: 'Full Name',
+      phone: 'Phone Number',
+      email: 'Email Address',
+      program: 'Select Program',
+      comments: 'Additional Comments',
+      submit: 'Register Now',
+      success: 'Registration successful! We will contact you soon.',
+      error: 'Something went wrong. Please try again later.',
+      placeholderName: 'Enter your full name',
+      placeholderPhone: '000-000-0000',
+      placeholderEmail: 'your@email.com',
+      placeholderComments: 'Any special requests or questions?',
+      programs: {
+        seminar: 'Blessed Dying Seminar',
+        mission: 'Pilgrimage / Mission Trip',
+        bible: 'Bible Study School'
+      }
     }
   },
   ko: {
@@ -168,6 +190,7 @@ export const translations = {
       programs: '사역 프로그램',
       donate: '참여하기',
       contact: '문의하기',
+      register: '등록신청',
       donateButton: '후원하기',
       logo: '에버그린 실버',
     },
@@ -319,6 +342,27 @@ export const translations = {
       typing: '그레이스가 입력 중...',
       initialMessage: '안녕하세요! 저는 에버그린 실버의 봉사 도우미 그레이스입니다. 무엇을 도와드릴까요?',
       error: '잠시 생각이 잘 나지 않네요. 다시 한번 말씀해 주시겠어요?'
+    },
+    registration: {
+      title: '프로그램 등록 신청',
+      subtitle: '세미나, 성지 순례, 성경 공부 등 다양한 소식과 참여 기회를 확인하세요.',
+      name: '성함',
+      phone: '전화번호',
+      email: '이메일 주소',
+      program: '프로그램 선택',
+      comments: '기타 문의 사항',
+      submit: '신청하기',
+      success: '등록이 완료되었습니다! 곧 연락을 드리겠습니다.',
+      error: '오류가 발생했습니다. 나중에 다시 시도해 주세요.',
+      placeholderName: '성함을 입력해 주세요',
+      placeholderPhone: '010-0000-0000',
+      placeholderEmail: 'email@example.com',
+      placeholderComments: '기타 궁금하신 점이나 요청 사항을 적어주세요.',
+      programs: {
+        seminar: '복된 죽음의 삶 세미나',
+        mission: '성지 순례 / 선교 여행',
+        bible: '성경 공부 학교'
+      }
     }
   }
 };

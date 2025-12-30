@@ -15,6 +15,7 @@ import DonatePage from './components/DonatePage';
 import ContactPage from './components/ContactPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import RegistrationPage from './components/RegistrationPage';
 
 import { LanguageProvider } from './context/LanguageContext';
 
@@ -44,6 +45,7 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/register" element={<RegistrationPage />} />
             </Routes>
           </main>
           <Footer />
