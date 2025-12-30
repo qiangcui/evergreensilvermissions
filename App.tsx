@@ -31,7 +31,7 @@ const HomePage = () => (
 
 function App() {
   return (
-    <BrowserRouter basename="/evergreensilvermissions">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <LanguageProvider>
         <div className="min-h-screen bg-silver-50 font-sans text-silver-800 antialiased selection:bg-evergreen-200 selection:text-evergreen-900 flex flex-col">
           <Navbar />
