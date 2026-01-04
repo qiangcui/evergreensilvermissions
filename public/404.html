@@ -14,16 +14,13 @@
 
         var l = window.location;
         var segments = l.pathname.split('/');
-        var repoName = 'evergreensilvermissions';
-
-        // List of all your main website routes
         var spaRoutes = ['mission', 'programs', 'donate', 'contact', 'privacy', 'terms', 'register'];
 
-        // Default is 1 (e.g., /evergreensilvermissions/)
-        // If the segment after repo name is NOT a known route, it's a branch folder (e.g., /new/)
-        var pathSegmentsToKeep = 1;
-        if (segments[2] && !spaRoutes.includes(segments[2]) && segments[2] !== "") {
-            pathSegmentsToKeep = 2;
+        // Default is 0 for custom domain root
+        // If the first segment is NOT a known route, it might be a branch folder (e.g., /new/)
+        var pathSegmentsToKeep = 0;
+        if (segments[1] && !spaRoutes.includes(segments[1]) && segments[1] !== "") {
+            pathSegmentsToKeep = 1;
         }
 
         l.replace(
