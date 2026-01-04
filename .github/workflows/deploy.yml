@@ -26,10 +26,10 @@ jobs:
         id: vars
         run: |
           if [ "${{ github.ref_name }}" == "main" ]; then
-            echo "base_path=/evergreensilvermissions/" >> $GITHUB_OUTPUT
+            echo "base_path=/" >> $GITHUB_OUTPUT
             echo "dest_dir=." >> $GITHUB_OUTPUT
           else
-            echo "base_path=/evergreensilvermissions/${{ github.ref_name }}/" >> $GITHUB_OUTPUT
+            echo "base_path=/${{ github.ref_name }}/" >> $GITHUB_OUTPUT
             echo "dest_dir=${{ github.ref_name }}" >> $GITHUB_OUTPUT
           fi
 
