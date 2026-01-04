@@ -25,7 +25,7 @@ jobs:
       - name: Calculate Base Path
         id: vars
         run: |
-          if [ "${{ github.ref_name }}" == "main" ]; then
+          if [ "${{ github.ref_name }}" == "main" ] || [ "${{ github.ref_name }}" == "new" ]; then
             echo "base_path=/" >> $GITHUB_OUTPUT
             echo "dest_dir=." >> $GITHUB_OUTPUT
           else
