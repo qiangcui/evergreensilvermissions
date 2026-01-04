@@ -59,12 +59,10 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0 flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img
-              src="/images/logo.png"
-              alt="Evergreen Senior Mission Logo"
-              className="h-12 w-auto"
-            />
+          <Link to="/" className="flex-shrink-0 flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <div className={`p-2 rounded-full ${logoBgClass}`}>
+              <Leaf size={24} />
+            </div>
             <span className={`font-serif text-xl font-bold ${logoTextClass}`}>
               {t.nav.logo}
             </span>
