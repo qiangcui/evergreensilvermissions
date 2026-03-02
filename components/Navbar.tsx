@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img
-              src="/logo.png"
+              src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Evergreen Senior Mission - 에버그린 선교회"
               className="h-12 sm:h-11 md:h-12 lg:h-14 w-auto object-contain"
             />
