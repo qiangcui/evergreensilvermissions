@@ -32,16 +32,16 @@ const Programs: React.FC = () => {
   };
 
   return (
-    <section id="programs" className="py-20 bg-silver-50">
+    <section id="programs" className="py-16 sm:py-20 bg-silver-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-silver-900 mb-4">{t.programs.title}</h2>
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-silver-900 mb-4">{t.programs.title}</h2>
           <p className="max-w-2xl mx-auto text-silver-600 text-lg break-keep">
             {t.programs.subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {t.programs.items.map((program, index) => (
             <div key={index} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group border border-silver-100">
               <div className="relative h-48 overflow-hidden">

@@ -32,16 +32,16 @@ const MissionSection: React.FC = () => {
   }, [language]);
 
   return (
-    <section id="mission" className="py-20 bg-white">
+    <section id="mission" className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-center">
 
           {/* Text Content */}
           <div className="space-y-8">
             <div className="inline-block px-4 py-1 bg-evergreen-100 text-evergreen-800 rounded-full text-sm font-bold tracking-wide uppercase">
               {t.mission.badge}
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-silver-900 leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-5xl font-serif font-bold text-silver-900 leading-tight">
               {t.mission.titleLine1} <br />
               <span className="text-evergreen-600">{t.mission.titleLine2}</span>
             </h2>

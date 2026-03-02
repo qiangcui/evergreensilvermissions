@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-0 md:min-h-screen flex flex-col justify-center overflow-hidden pt-48 pb-24 sm:pt-52 sm:pb-28 md:pt-0 md:pb-0">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -19,13 +19,13 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-evergreen-900 via-transparent to-transparent opacity-90"></div>
       </div>
 
-      {/* Content */}
+      {/* Content - on mobile: top-aligned with small bottom; on desktop: centered */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight mb-6 animate-fade-in-up">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight mb-6 animate-fade-in-up">
           {t.hero.titleLine1} <br />
           <span className="text-evergreen-300">{t.hero.titleLine2}</span>
         </h1>
-        <p className="max-w-2xl mx-auto text-lg md:text-xl text-silver-100 mb-10 font-light leading-relaxed">
+        <p className="max-w-2xl mx-auto text-lg sm:text-xl md:text-xl text-silver-100 mb-10 font-light leading-relaxed">
           {t.hero.subtitle}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll indicator - Only show on home page when scrolling is expected? We'll leave it as a visual decoration */}
+      {/* Scroll indicator - hidden on mobile */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
         <div className="w-8 h-12 border-2 border-silver-300 rounded-full flex justify-center p-2">
           <div className="w-1 h-3 bg-white rounded-full"></div>
